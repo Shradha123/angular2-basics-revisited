@@ -1,5 +1,5 @@
 <div class='panel panel-primary'>
-  <div class='panel-heading'>Categories</div>
+  <div class='panel-heading'>{{category}}</div>
 </div>
 <div class='panel-body'>
  <div class='table-responsive'>
@@ -21,7 +21,12 @@
          </th>
        </tr>
      </thead>
-     <tbody>
+     <tbody *ngIf='list && list.length'>
+       <tr *ngFor='let product of list'>
+         <td>{{product.productName}}</td>
+         <td>{{product.productColor}}</td>
+         <td><img [imageZoom]='product.bigUrl' [src]='product.imageUrl' windowPosition="1"></td>
+       </tr>
      </tbody>
    </table>
  </div>
